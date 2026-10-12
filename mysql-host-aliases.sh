@@ -44,7 +44,7 @@
 #         ./mysql-host-aliases.sh --install --dest P # install to a custom path
 
 # Version of this script (single source of truth, printed by --version).
-SCRIPT_VERSION="1.0.0"
+SCRIPT_VERSION="v1.0.0"
 
 # ===========================================================================
 # CONFIGURATION  --  edit these three values to customize.
