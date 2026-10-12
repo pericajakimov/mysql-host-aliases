@@ -1,0 +1,32 @@
+# Example mysql config showing an [endpoints] group for mysql-host-aliases.
+#
+# Copy the [endpoints] group into your real ~/.my.cnf (or point ENDPOINTS_FILE at a
+# dedicated file). The real mysql client tools ignore the [endpoints] group,
+# so it can coexist with your normal settings.
+
+[client]
+user = admin
+# password = ...        # prefer `mysql_config_editor` / a secrets manager over plaintext
+connect-timeout = 10
+
+[endpoints]
+# alias = anything you'd normally type after -h / --host
+
+# RDS / Aurora cluster endpoints
+dev     = dev.cluster-abc123xyz.eu-central-1.rds.amazonaws.com
+qa      = qa.cluster-abc123xyz.eu-central-1.rds.amazonaws.com
+staging = staging.cluster-abc123xyz.eu-central-1.rds.amazonaws.com
+prod    = prod.cluster-abc123xyz.eu-central-1.rds.amazonaws.com
+
+# Plain IP addresses
+db1     = 10.20.30.40
+db2     = 192.168.1.50
+
+# Internal DNS names (Kubernetes service, Docker Compose service, VPC DNS, …)
+internal = db-primary.svc.internal
+
+# SSH tunnel / port-forward target — connect with: mysql -h tunnel -P 3307
+tunnel  = 127.0.0.1
+
+# Other managed databases work too (Cloud SQL, Azure, PlanetScale, …)
+gcp     = 34.123.45.67
